@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import AboutUsRoute from './routes/AboutUsRoute';
+import MembershipRoute from './routes/MembershipRoute';
+import CoachingRoute from './routes/CoachingRoute';
+import ContactRoute from './routes/ContactRoute';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './LandingPage.css';
 
@@ -13,28 +17,24 @@ class LandingPage extends Component {
                 <div className="landing-page">
                     <div className="header">
                         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                        East Cobb Sports
+                        <div className="header-title">East Cobb Sports</div>
+                        <div className="header-subtitle">
+                            2550 Sandy Plains Road, Suite 230<br/>
+                            Marietta, GA 30024
+                        </div>
                     </div>
                     <Tabs>
                         <Tab label="About Us" >
-                            <div>
-                                <h2>About Us</h2>
-                            </div>
+                            <AboutUsRoute/>
                         </Tab>
                         <Tab label="Coaching" >
-                            <div>
-                                <h2>Coaching</h2>
-                            </div>
+                            <CoachingRoute/>
                         </Tab>
                         <Tab label="Membership" >
-                            <div>
-                                <h2>Membership</h2>
-                            </div>
+                            <MembershipRoute/>
                         </Tab>
                         <Tab label="Contact" >
-                            <div>
-                                <h2>Contact</h2>
-                            </div>
+                            <ContactRoute/>
                         </Tab>
                     </Tabs>
                 </div>

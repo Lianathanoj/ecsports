@@ -10,10 +10,19 @@
 
 .header {
   background-color: #222;
-  height: 75px;
   padding: 20px;
-  font-size: 60px;
+  /*margin: 10px 10px 10px 10px;*/
+  height: 125px;
   color: white;
+}
+
+.header .header-title {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.header .header-subtitle {
+  font-size: 15px;
 }
 
 .App-intro {
