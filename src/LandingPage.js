@@ -13,32 +13,32 @@ injectTapEventPlugin();
 class LandingPage extends Component {
   render() {
     return (
-            <MuiThemeProvider>
-                <div className="landing-page">
-                    <div className="header">
-                        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                        <div className="header-title">East Cobb Sports</div>
-                        <div className="header-subtitle">
-                            2550 Sandy Plains Road, Suite 230<br/>
-                            Marietta, GA 30024
-                        </div>
+        <MuiThemeProvider>
+            <div className="landing-page">
+                <div className="header">
+                    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
+                    <div className="header-title">East Cobb Sports</div>
+                    <div className="header-subtitle">
+                        2550 Sandy Plains Road, Suite 230<br/>
+                        Marietta, GA 30024
                     </div>
-                    <Tabs>
-                        <Tab label="About Us" >
-                            <AboutUsRoute/>
-                        </Tab>
-                        <Tab label="Coaching" >
-                            <CoachingRoute/>
-                        </Tab>
-                        <Tab label="Membership" >
-                            <MembershipRoute/>
-                        </Tab>
-                        <Tab label="Contact" >
-                            <ContactRoute/>
-                        </Tab>
-                    </Tabs>
                 </div>
-            </MuiThemeProvider>
+                <Tabs>
+                    <Tab label="About Us" >
+                        <AboutUsRoute/>
+                    </Tab>
+                    <Tab label="Coaching" >
+                        <CoachingRoute/>
+                    </Tab>
+                    <Tab label="Membership" >
+                        <MembershipRoute/>
+                    </Tab>
+                    <Tab label="Contact" >
+                        <ContactRoute/>
+                    </Tab>
+                </Tabs>
+            </div>
+        </MuiThemeProvider>
     );
   }
 }
