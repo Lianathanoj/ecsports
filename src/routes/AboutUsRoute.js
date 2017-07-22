@@ -4,7 +4,7 @@ class AboutUsRoute extends Component {
     render() {
         return (
           <div style={{textAlign: 'center'}}>
-              <h2>About Us</h2>
+              <h1>About Us</h1>
               We offer table tennis coaching services, open play, and league play.
           </div>
         );
