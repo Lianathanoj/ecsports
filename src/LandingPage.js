@@ -5,12 +5,14 @@ import AboutUsRoute from './routes/AboutUsRoute';
 import MembershipRoute from './routes/MembershipRoute';
 import CoachingRoute from './routes/CoachingRoute';
 import ContactRoute from './routes/ContactRoute';
+import FAQRoute from './routes/FAQRoute';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './LandingPage.css';
 
 injectTapEventPlugin();
 
 class LandingPage extends Component {
+
   render() {
     return (
         <MuiThemeProvider>
@@ -20,20 +22,23 @@ class LandingPage extends Component {
                     <div className="header-title">East Cobb Sports</div>
                     <div className="header-subtitle">
                         2550 Sandy Plains Road, Suite 230<br/>
-                        Marietta, GA 30024
+                        Marietta, GA 30066
                     </div>
                 </div>
                 <Tabs>
-                    <Tab label="About Us" >
+                    <Tab label="About Us">
                         <AboutUsRoute/>
                     </Tab>
-                    <Tab label="Coaching" >
+                    <Tab label="Coaching">
                         <CoachingRoute/>
                     </Tab>
-                    <Tab label="Membership" >
+                    <Tab label="Membership">
                         <MembershipRoute/>
                     </Tab>
-                    <Tab label="Contact" >
+                    <Tab label="FAQ's">
+                        <FAQRoute/>
+                    </Tab>
+                    <Tab label="Contact">
                         <ContactRoute/>
                     </Tab>
                 </Tabs>

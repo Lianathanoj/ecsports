@@ -12,7 +12,7 @@ class CoachingRoute extends Component {
                     <CardText style={{overflow: 'auto'}}>
                         <div>
                             <img className="amy-image" src={amyImage}/>
-                            <h2 style={{textAlign: 'left'}}>Amy Feng</h2>
+                            <h2 style={{textAlign: 'left'}}>Amy Feng, Head Coach</h2>
                             <p style={{textAlign: 'left'}}>
                             Amy grew up in China and played table tennis professionally there. She was a part of the
                             China Women's Team in Tianjin, attained top finishes in the Chinese National Championships
@@ -32,7 +32,7 @@ class CoachingRoute extends Component {
                             <tr>
                                 <td>
                                     <h4>Non-member</h4>
-                                    <div>$60/hour</div>
+                                    <div>$60 / hour</div>
                                     <div><pre>&nbsp;</pre></div>
                                 </td>
                                 <td>
@@ -40,9 +40,9 @@ class CoachingRoute extends Component {
                                 </td>
                                 <td>
                                     <h4>Member</h4>
-                                    <div>$50/hour</div>
-                                    <div>$45/hour for four lessons</div>
-                                    <div>$40/hour for eight lessons</div>
+                                    <div>$50 / hour</div>
+                                    <div>$45 / hour for four lessons</div>
+                                    <div>$40 / hour for eight lessons</div>
                                 </td>
                             </tr>
                         </tbody>
