@@ -23,9 +23,9 @@ class LandingPage extends Component {
                         <Particles style={{position: 'absolute', left: '0px'}} height='30%' params={{
                             particles: {
                                 "number": {
-                                    "value": 80,
+                                    "value": 50,
                                     "density": {
-                                        "enable": true,
+                                        "enable": false,
                                         "value_area": 800
                                     }
                                 },
@@ -76,7 +76,7 @@ class LandingPage extends Component {
                                 },
                                 "move": {
                                     "enable": true,
-                                    "speed": 6,
+                                    "speed": 1,
                                     "direction": "none",
                                     "random": false,
                                     "straight": false,
