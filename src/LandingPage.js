@@ -7,7 +7,7 @@ import CoachingRoute from './routes/CoachingRoute';
 import ContactRoute from './routes/ContactRoute';
 import FAQRoute from './routes/FAQRoute';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './LandingPage.css';
+import './global.css';
 
 injectTapEventPlugin();
 

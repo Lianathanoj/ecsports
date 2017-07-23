@@ -3,7 +3,7 @@
   font-family: 'Zilla Slab', 'sans-serif';
 }
 
-.App-logo {
+.logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -11,10 +11,24 @@
 .amy-image {
   float: left;
   /*clip-path: inset(0px 0px 0px 0px);*/
-  box-shadow: 0 4px 8px rgba(0,0,0,0.16), 0 4px 8px rgba(0,0,0,0.23);
   width: 15%;
   height: 15%;
   margin: 0px 30px 15px 15px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.shadow {
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.16), 3px 4px 12px rgba(0,0,0,0.23);
+}
+
+.slider-image {
+  width: 600px;
+  height: 400px;
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -40,10 +54,6 @@
   font-size: 15px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -51,8 +61,4 @@
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-iframe {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.16), 0 4px 8px rgba(0,0,0,0.23);
 }

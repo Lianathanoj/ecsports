@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import amyImage from '../images/amy-action.jpg';
-import '../LandingPage.css'
+import '../global.css'
 
 class CoachingRoute extends Component {
     render() {
@@ -11,7 +11,7 @@ class CoachingRoute extends Component {
                 <Card style={{margin: '0px 200px 0px 200px'}}>
                     <CardText style={{overflow: 'auto'}}>
                         <div>
-                            <img className="amy-image" src={amyImage}/>
+                            <img className="amy-image shadow" src={amyImage}/>
                             <h2 style={{textAlign: 'left'}}>Amy Feng, Head Coach</h2>
                             <p style={{textAlign: 'left'}}>
                             Amy grew up in China and played table tennis professionally there. She was a part of the
