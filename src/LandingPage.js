@@ -24,7 +24,10 @@ class LandingPage extends Component {
                         Marietta, GA 30066
                     </div>
                 </div>
-                <Tabs>
+                <Tabs
+                    tabItemContainerStyle={{backgroundColor: '#2071FC'}}
+                    inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
+                >
                     <Tab label="About Us">
                         <AboutUsRoute/>
                     </Tab>

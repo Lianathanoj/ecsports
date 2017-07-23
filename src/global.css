@@ -11,8 +11,10 @@
 .amy-image {
   float: left;
   /*clip-path: inset(0px 0px 0px 0px);*/
-  width: 15%;
-  height: 15%;
+  /*width: 15%;*/
+  /*height: 15%;*/
+  width: 150px;
+  height: 150px;
   margin: 0px 30px 15px 15px;
   user-drag: none;
   user-select: none;

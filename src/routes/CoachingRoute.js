@@ -8,20 +8,22 @@ class CoachingRoute extends Component {
         return (
             <div style={{textAlign: 'center'}}>
                 <h1>Coaches</h1>
-                <Card style={{margin: '0px 200px 0px 200px'}}>
+                <Card containerStyle={{fontFamily: "'Zilla Slab', 'sans-serif"}} style={{margin: 'auto', width: '70%'}}>
                     <CardText style={{overflow: 'auto'}}>
                         <div>
                             <img className="amy-image shadow" src={amyImage}/>
-                            <h2 style={{textAlign: 'left'}}>Amy Feng, Head Coach</h2>
-                            <p style={{textAlign: 'left'}}>
-                            Amy grew up in China and played table tennis professionally there. She was a part of the
-                            China Women's Team in Tianjin, attained top finishes in the Chinese National Championships
-                            (2nd, 5th), and was the reigning Tianjin Champion from 1985-1989. Her highest world rank was
-                            #26. After moving to the United States, she was a 1996 USA Olympian, has twice been named
-                            USATT Athlete of the Year, and is a member of the <a target="_blank" href="http://www.teamusa.org/USA-Table-Tennis/History/Hall-of-Fame/Profiles/Amy-Feng">
-                            USATT Hall of Fame.</a> Amy is a four time US Open Champion, four time US Woman's Doubles
-                            Champion, and four time US Mixed Doubles Champion. She has also won the 1985 Polish Open.
-                            </p>
+                            <div style={{textAlign: 'left'}}>
+                                <h2>Amy Feng, Head Coach</h2>
+                                <p>
+                                Amy grew up in China and played table tennis professionally there. She was a part of the
+                                China Women's Team in Tianjin, attained top finishes in the Chinese National Championships
+                                (2nd, 5th), and was the reigning Tianjin Champion from 1985-1989. Her highest world rank was
+                                #26. After moving to the United States, she was a 1996 USA Olympian, has twice been named
+                                USATT Athlete of the Year, and is a member of the <a target="_blank" href="http://www.teamusa.org/USA-Table-Tennis/History/Hall-of-Fame/Profiles/Amy-Feng">
+                                USATT Hall of Fame.</a> Amy is a four time US Open Champion, four time US Woman's Doubles
+                                Champion, and four time US Mixed Doubles Champion. She has also won the 1985 Polish Open.
+                                </p>
+                            </div>
                         </div>
                     </CardText>
                 </Card>
@@ -36,7 +38,7 @@ class CoachingRoute extends Component {
                                     <div><pre>&nbsp;</pre></div>
                                 </td>
                                 <td>
-                                    <pre>&nbsp;&nbsp;&nbsp;&nbsp;</pre>
+                                    <pre>&nbsp;&nbsp;</pre>
                                 </td>
                                 <td>
                                     <h4>Member</h4>

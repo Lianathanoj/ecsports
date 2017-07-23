@@ -41,12 +41,12 @@ class AboutUsRoute extends Component {
             <div style={{textAlign: 'center'}}>
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-                <div style={{margin: '0px 175px 0px 175px'}}>
+                <div style={{margin: 'auto', width: '75%'}}>
                     <br/>
                     <h1>General Information</h1>
                     <div>
                         We offer table tennis coaching services, open play, and league play for all ages and skill levels.
-                        Our organized league is every Saturday at 3:00 PM. We also sell equipment and clothing, and we can
+                        Our organized league is every Saturday at 3 PM. We also sell equipment and clothing, and we can
                         arrange smaller or specialized events such as private parties or small tournaments. Typically, we
                         do not host USATT sanctioned events.
                     </div>
@@ -60,7 +60,7 @@ class AboutUsRoute extends Component {
                     </Slider>
                     <br/>
                 </div>
-                <div style={{marginBottom: '30px'}}>
+                <div style={{marginBottom: '50px'}}>
                     <h1>Location</h1>
                     <div onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
                         <iframe
