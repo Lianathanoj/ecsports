@@ -12,7 +12,6 @@ import './global.css';
 injectTapEventPlugin();
 
 class LandingPage extends Component {
-
   render() {
     return (
         <MuiThemeProvider>
