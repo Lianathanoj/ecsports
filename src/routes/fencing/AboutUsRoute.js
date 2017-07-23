@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import ClubPicture1 from '../../images/club1.jpg';
-import ClubPicture2 from '../../images/club2.jpg';
-import BuildingPicture from '../../images/ecsports.jpg';
-import GroupPicture1 from '../../images/group1.jpg';
-import GroupPicture2 from '../../images/group2.jpg';
+import FencingPicture1 from '../../images/fencing/fencing-action1.jpg';
+import FencingPicture2 from '../../images/fencing/fencing-action2.jpg';
 import '../../global.css';
 
 class AboutUsRoute extends Component {
@@ -45,16 +42,25 @@ class AboutUsRoute extends Component {
                     <br/>
                     <h1>General Information</h1>
                     <div>
-                        FENCING
+                        Fencing is the Olympic Sport and modern-day form of swordsmanship. While it may seem like a single dimension sport, fencing is actually
+                        comprised of 3 different weapons: foil, epee, and saber. Points are awarded to the fencers who are able to outmaneuver, attack, and ultimately
+                        touch their opponents.
+
+                        Often referred to as "physical Chess", fencing requires not only athletic finesse, but also intellectual acumen. To achieve success in
+                        you must be able to master strategy, focus, and forethought. It truly is both a sport for the body and mind. Because fencing has such a
+                        large intellectual component, Asians have consistently excelled at the sport. In the 2012 Olympics, Asian countries won medals in 8 of the 10
+                        fencing events, including China winnning the Gold medal in Men's foil fencing.
+
+                        There are many benefits to being a fencer. Not only can it sharpen one's mind, it can also provide a unique competitive edge to a
+                        student's college application. All Ivy League colleges actively recruit fencers. As stated on the Columbia University website, "the college
+                        applicant, who is also a fencer, becomes an athletic 'recruit'. A recruit certainly has many advantages over the non-fencer.
+                        Being a fencer is a distinct advantage for the college applicant."
                     </div>
                     <br/>
-                    {/*<Slider className="shadow" {...settings}>*/}
-                        {/*<div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>*/}
-                        {/*<div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>*/}
-                        {/*<div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>*/}
-                        {/*/!*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*!/*/}
-                        {/*<div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>*/}
-                    {/*</Slider>*/}
+                    <Slider className="shadow" {...settings}>
+                        <div><img className="slider-image shadow" src={FencingPicture1} alt={true}/></div>
+                        <div><img className="slider-image shadow" src={FencingPicture2} alt={true}/></div>
+                    </Slider>
                     <br/>
                 </div>
                 <div style={{marginBottom: '50px'}}>

@@ -24,6 +24,20 @@
   -ms-user-select: none;
 }
 
+.eugene-image {
+  float: left;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  margin: 0px 30px 15px 15px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .shadow {
   box-shadow: 2px 4px 10px rgba(0,0,0,0.16), 3px 4px 12px rgba(0,0,0,0.23);
 }

@@ -138,7 +138,7 @@ class LandingPage extends Component {
                                 <Tab label="Coaching">
                                     <CoachingRouteTT/>
                                 </Tab>
-                                <Tab label="Membership">
+                                <Tab label="Pricing and Membership">
                                     <MembershipRouteTT/>
                                 </Tab>
                                 <Tab label="FAQ's">
@@ -159,12 +159,12 @@ class LandingPage extends Component {
                                 <Tab label="Coaching">
                                     <CoachingRouteFencing/>
                                 </Tab>
-                                <Tab label="Membership">
+                                <Tab label="Pricing and Times">
                                     <MembershipRouteFencing/>
                                 </Tab>
-                                <Tab label="FAQ's">
-                                    <FAQRouteFencing/>
-                                </Tab>
+                                {/*<Tab label="FAQ's">*/}
+                                    {/*<FAQRouteFencing/>*/}
+                                {/*</Tab>*/}
                                 <Tab label="Contact">
                                     <ContactRouteFencing/>
                                 </Tab>

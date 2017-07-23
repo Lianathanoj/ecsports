@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import ClubPicture1 from '../../images/club1.jpg';
-import ClubPicture2 from '../../images/club2.jpg';
-import BuildingPicture from '../../images/ecsports.jpg';
-import GroupPicture1 from '../../images/group1.jpg';
-import GroupPicture2 from '../../images/group2.jpg';
+import ClubPicture1 from '../../images/table-tennis/club1.jpg';
+import ClubPicture2 from '../../images/table-tennis/club2.jpg';
+import BuildingPicture from '../../images/table-tennis/ecsports.jpg';
+import GroupPicture1 from '../../images/table-tennis/group1.jpg';
+import GroupPicture2 from '../../images/table-tennis/group2.jpg';
 import '../../global.css';
 
 class AboutUsRoute extends Component {
