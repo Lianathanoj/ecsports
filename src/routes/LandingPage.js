@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import FlatButton from 'material-ui/FlatButton';
 import AboutUsRoute from './AboutUsRoute';
 import MembershipRoute from './MembershipRoute';
 import CoachingRoute from './CoachingRoute';
@@ -90,7 +91,21 @@ class LandingPage extends Component {
                                 }
                             }
                         }}/>
-                        <div className="header-title" style={{zIndex: 1}}>East Cobb Sports</div>
+                        <div className="header-title">
+                            East Cobb Sports
+                            <FlatButton
+                                labelStyle={{
+                                    fontSize: '60px',
+                                    fontFamily: "'Zilla Slab', 'sans-serif'",
+                                    textTransform: 'capitalize',
+                                    color: 'white',
+                                    position: 'relative',
+                                    bottom:'5px'
+                                }}
+                                style={{height: '60px'}}
+                                label="Table Tennis"
+                            />
+                        </div>
                         <div className="header-subtitle">
                             2550 Sandy Plains Road, Suite 230<br/>
                             Marietta, GA 30066
