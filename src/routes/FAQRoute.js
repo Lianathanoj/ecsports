@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Divider from 'material-ui/Divider';
-
 class FAQRoute extends Component {
     render() {
         return (
@@ -14,7 +12,6 @@ class FAQRoute extends Component {
                     </div>
                     <h4>What ages do you coach?</h4>
                     <div>We coach players of any age, but it is usually best if they are at least 6 years of age.</div>
-                    {/*<Divider />*/}
                     <h4>Are there group lessons?</h4>
                     <div>
                         We do offer group lessons at different times during the week. Please check with the front

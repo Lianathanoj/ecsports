@@ -52,11 +52,11 @@ class AboutUsRoute extends Component {
                     </div>
                     <br/>
                     <Slider className="shadow" {...settings}>
-                        <div><img className="slider-image shadow" src={ClubPicture1}/></div>
-                        <div><img className="slider-image shadow" src={ClubPicture2}/></div>
-                        <div><img className="slider-image shadow" src={BuildingPicture}/></div>
-                        {/*<div><img className="slider-image shadow" src={GroupPicture1}/></div>*/}
-                        <div><img className="slider-image shadow" src={GroupPicture2}/></div>
+                        <div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>
+                        <div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>
+                        <div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>
+                        {/*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*/}
+                        <div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>
                     </Slider>
                     <br/>
                 </div>

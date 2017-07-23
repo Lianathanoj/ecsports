@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardText} from 'material-ui/Card';
 import amyImage from '../images/amy-action.jpg';
 import '../global.css'
 
@@ -11,7 +11,7 @@ class CoachingRoute extends Component {
                 <Card containerStyle={{fontFamily: "'Zilla Slab', 'sans-serif"}} style={{margin: 'auto', width: '70%'}}>
                     <CardText style={{overflow: 'auto'}}>
                         <div>
-                            <img className="amy-image shadow" src={amyImage}/>
+                            <img className="amy-image shadow" src={amyImage} alt="coach amy"/>
                             <div style={{textAlign: 'left'}}>
                                 <h2>Amy Feng, Head Coach</h2>
                                 <p>

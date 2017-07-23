@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import AboutUsRoute from './routes/AboutUsRoute';
-import MembershipRoute from './routes/MembershipRoute';
-import CoachingRoute from './routes/CoachingRoute';
-import ContactRoute from './routes/ContactRoute';
-import FAQRoute from './routes/FAQRoute';
+import AboutUsRoute from './AboutUsRoute';
+import MembershipRoute from './MembershipRoute';
+import CoachingRoute from './CoachingRoute';
+import ContactRoute from './ContactRoute';
+import FAQRoute from './FAQRoute';
 import Particles from 'react-particles-js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './global.css';
+import '../global.css';
 
 injectTapEventPlugin();
 
