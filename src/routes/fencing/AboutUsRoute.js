@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import ClubPicture1 from '../images/club1.jpg';
-import ClubPicture2 from '../images/club2.jpg';
-import BuildingPicture from '../images/ecsports.jpg';
-import GroupPicture1 from '../images/group1.jpg';
-import GroupPicture2 from '../images/group2.jpg';
-import '../global.css';
+import ClubPicture1 from '../../images/club1.jpg';
+import ClubPicture2 from '../../images/club2.jpg';
+import BuildingPicture from '../../images/ecsports.jpg';
+import GroupPicture1 from '../../images/group1.jpg';
+import GroupPicture2 from '../../images/group2.jpg';
+import '../../global.css';
 
 class AboutUsRoute extends Component {
     constructor(props) {
@@ -45,19 +45,16 @@ class AboutUsRoute extends Component {
                     <br/>
                     <h1>General Information</h1>
                     <div>
-                        We offer table tennis coaching services, open play, and league play for all ages and skill levels.
-                        Our organized league is every Saturday at 3 PM. We also sell equipment and clothing, and we can
-                        arrange smaller or specialized events such as private parties or small tournaments. Typically, we
-                        do not host USATT sanctioned events.
+                        FENCING
                     </div>
                     <br/>
-                    <Slider className="shadow" {...settings}>
-                        <div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>
-                        <div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>
-                        <div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>
-                        {/*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*/}
-                        <div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>
-                    </Slider>
+                    {/*<Slider className="shadow" {...settings}>*/}
+                        {/*<div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>*/}
+                        {/*<div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>*/}
+                        {/*<div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>*/}
+                        {/*/!*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*!/*/}
+                        {/*<div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>*/}
+                    {/*</Slider>*/}
                     <br/>
                 </div>
                 <div style={{marginBottom: '50px'}}>

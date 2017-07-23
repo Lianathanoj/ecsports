@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
-import AboutUsRoute from './AboutUsRoute';
-import MembershipRoute from './MembershipRoute';
-import CoachingRoute from './CoachingRoute';
-import ContactRoute from './ContactRoute';
-import FAQRoute from './FAQRoute';
+import AboutUsRouteTT from './table-tennis/AboutUsRoute';
+import MembershipRouteTT from './table-tennis/MembershipRoute';
+import CoachingRouteTT from './table-tennis/CoachingRoute';
+import ContactRouteTT from './table-tennis/ContactRoute';
+import FAQRouteTT from './table-tennis/FAQRoute';
+import AboutUsRouteFencing from './fencing/AboutUsRoute';
+import MembershipRouteFencing from './fencing/MembershipRoute';
+import CoachingRouteFencing from './fencing/CoachingRoute';
+import ContactRouteFencing from './fencing/ContactRoute';
+import FAQRouteFencing from './fencing/FAQRoute';
 import Particles from 'react-particles-js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import '../global.css';
@@ -14,6 +19,15 @@ import '../global.css';
 injectTapEventPlugin();
 
 class LandingPage extends Component {
+  constructor(props) {
+      super(props);
+      this.state = { isTableTennis: true };
+  }
+
+  handleSportsButtonClick = (event) => {
+      this.setState({ isTableTennis: !this.state.isTableTennis});
+  }
+
   render() {
     return (
         <MuiThemeProvider>
@@ -21,7 +35,7 @@ class LandingPage extends Component {
                 <div className="landing-page">
                     <div className="header">
                         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                        <Particles style={{position: 'absolute', left: '0px'}} height='30%' params={{
+                        <Particles style={{position: 'absolute', left: '0px'}} height='200px' params={{
                             particles: {
                                 "number": {
                                     "value": 50,
@@ -94,6 +108,7 @@ class LandingPage extends Component {
                         <div className="header-title">
                             East Cobb Sports
                             <FlatButton
+                                onClick={this.handleSportsButtonClick}
                                 labelStyle={{
                                     fontSize: '60px',
                                     fontFamily: "'Zilla Slab', 'sans-serif'",
@@ -103,7 +118,7 @@ class LandingPage extends Component {
                                     bottom:'5px'
                                 }}
                                 style={{height: '60px'}}
-                                label="Table Tennis"
+                                label={this.state.isTableTennis ? "Table Tennis" : "Fencing"}
                             />
                         </div>
                         <div className="header-subtitle">
@@ -111,26 +126,51 @@ class LandingPage extends Component {
                             Marietta, GA 30066
                         </div>
                     </div>
-                    <Tabs
-                        tabItemContainerStyle={{backgroundColor: '#2071FC'}}
-                        inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
-                    >
-                        <Tab label="About Us">
-                            <AboutUsRoute/>
-                        </Tab>
-                        <Tab label="Coaching">
-                            <CoachingRoute/>
-                        </Tab>
-                        <Tab label="Membership">
-                            <MembershipRoute/>
-                        </Tab>
-                        <Tab label="FAQ's">
-                            <FAQRoute/>
-                        </Tab>
-                        <Tab label="Contact">
-                            <ContactRoute/>
-                        </Tab>
-                    </Tabs>
+                    {this.state.isTableTennis ?
+                        (
+                            <Tabs
+                                tabItemContainerStyle={{backgroundColor: '#2071FC'}}
+                                inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
+                            >
+                                <Tab label="About Us">
+                                    <AboutUsRouteTT/>
+                                </Tab>
+                                <Tab label="Coaching">
+                                    <CoachingRouteTT/>
+                                </Tab>
+                                <Tab label="Membership">
+                                    <MembershipRouteTT/>
+                                </Tab>
+                                <Tab label="FAQ's">
+                                    <FAQRouteTT/>
+                                </Tab>
+                                <Tab label="Contact">
+                                    <ContactRouteTT/>
+                                </Tab>
+                            </Tabs>
+                        ) : (
+                            <Tabs
+                                tabItemContainerStyle={{backgroundColor: '#D83E2C'}}
+                                inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
+                            >
+                                <Tab label="About Us">
+                                    <AboutUsRouteFencing/>
+                                </Tab>
+                                <Tab label="Coaching">
+                                    <CoachingRouteFencing/>
+                                </Tab>
+                                <Tab label="Membership">
+                                    <MembershipRouteFencing/>
+                                </Tab>
+                                <Tab label="FAQ's">
+                                    <FAQRouteFencing/>
+                                </Tab>
+                                <Tab label="Contact">
+                                    <ContactRouteFencing/>
+                                </Tab>
+                            </Tabs>
+                        )
+                    }
                 </div>
             </div>
         </MuiThemeProvider>
