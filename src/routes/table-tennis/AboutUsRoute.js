@@ -48,7 +48,7 @@ class AboutUsRoute extends Component {
                         We offer table tennis coaching services, open play, and league play for all ages and skill levels.
                         Our organized league is every Saturday at 3 PM. We also sell equipment and clothing, and we can
                         arrange smaller or specialized events such as private parties or small tournaments. Typically, we
-                        do not host USATT sanctioned events. For fencing information, click on "Table Tennis" in the header.
+                        do not host USATT sanctioned events.
                     </div>
                     <br/>
                     <Slider className="shadow" {...settings}>

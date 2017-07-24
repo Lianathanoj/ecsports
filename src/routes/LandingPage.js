@@ -130,7 +130,7 @@ class LandingPage extends Component {
                                     fontSize: '60px',
                                     fontFamily: "'Zilla Slab', 'sans-serif'",
                                     textTransform: 'capitalize',
-                                    color: '#f2f2f2',
+                                    color: '#ECECEC',
                                     position: 'relative',
                                     bottom:'5px'
                                 }}
