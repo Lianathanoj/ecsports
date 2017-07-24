@@ -42,6 +42,8 @@
 .slider-image {
   width: 600px;
   height: 400px;
+  /*width: 37.5vw;*/
+  /*height: 25vw;*/
   user-drag: none;
   user-select: none;
   -moz-user-select: none;

@@ -7,7 +7,11 @@ import '../../global.css';
 class AboutUsRoute extends Component {
     constructor(props) {
         super(props);
-        this.state = { hasPointerEvents: false };
+        this.state = {
+            hasPointerEvents: false,
+            slidesToShow: 2,
+            carouselWidth: '50%'
+        };
     }
 
     handleMapMouseDown = (event) => {
@@ -18,12 +22,29 @@ class AboutUsRoute extends Component {
         this.setState({ hasPointerEvents: false });
     }
 
+    updateCarousel = () => {
+        if (window.innerWidth < 1000) {
+            this.setState({carouselWidth: '80%', slidesToShow: 1});
+        } else {
+            this.setState({carouselWidth: '100%', slidesToShow: 2});
+        }
+    }
+
+    componentDidMount() {
+        this.updateCarousel();
+        window.addEventListener("resize", this.updateCarousel);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateCarousel);
+    }
+
     render() {
         var settings = {
             dots: true,
             speed: 750,
             infinite: true,
-            slidesToShow: 2,
+            slidesToShow: this.state.slidesToShow,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 8000,
@@ -56,15 +77,22 @@ class AboutUsRoute extends Component {
                         Being a fencer is a distinct advantage for the college applicant."
                     </div>
                     <br/>
-                    <Slider className="shadow" {...settings}>
-                        <div><img className="slider-image shadow" src={FencingPicture1} alt={true}/></div>
-                        <div><img className="slider-image shadow" src={FencingPicture2} alt={true}/></div>
-                    </Slider>
+                    <div style={{margin: 'auto', width: this.state.carouselWidth}}>
+                        <Slider className="shadow" {...settings}>
+                            <div><img className="slider-image shadow" src={FencingPicture1} alt={true}/></div>
+                            <div><img className="slider-image shadow" src={FencingPicture2} alt={true}/></div>
+                        </Slider>
+                    </div>
                     <br/>
                 </div>
                 <div style={{marginBottom: '50px'}}>
                     <h1>Location</h1>
-                    <div onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
+                    <div style={{
+                        position: 'relative',
+                        paddingBottom: '50%',
+                        height: '0',
+                        overflow: 'hidden'
+                    }} onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1924.3734731008076!2d-84.493488321495
                             08!3d34.01139995658294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5133c5f550225%3A0xc39eee62
@@ -72,8 +100,8 @@ class AboutUsRoute extends Component {
                             frameBorder="0"
                             style={{
                                 position: 'absolute',
-                                left: '25%',
-                                width: '50%',
+                                left: '20%',
+                                width: '60%',
                                 height: '100%',
                                 pointerEvents: this.state.hasPointerEvents ? 'auto' : 'none'
                             }}

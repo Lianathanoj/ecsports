@@ -10,15 +10,36 @@ import '../../global.css';
 class AboutUsRoute extends Component {
     constructor(props) {
         super(props);
-        this.state = { hasPointerEvents: false };
+        this.state = {
+            hasPointerEvents: false,
+            slidesToShow: 2,
+            carouselWidth: '50%'
+        };
     }
 
     handleMapMouseDown = (event) => {
-        this.setState({ hasPointerEvents: true });
+        this.setState({hasPointerEvents: true});
     }
 
     handleMapMouseLeave = (event) => {
-        this.setState({ hasPointerEvents: false });
+        this.setState({hasPointerEvents: false});
+    }
+
+    updateCarousel = () => {
+        if (window.innerWidth < 1000) {
+            this.setState({carouselWidth: '80%', slidesToShow: 1});
+        } else {
+            this.setState({carouselWidth: '100%', slidesToShow: 2});
+        }
+    }
+
+    componentDidMount() {
+        this.updateCarousel();
+        window.addEventListener("resize", this.updateCarousel);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateCarousel);
     }
 
     render() {
@@ -26,7 +47,7 @@ class AboutUsRoute extends Component {
             dots: true,
             speed: 750,
             infinite: true,
-            slidesToShow: 2,
+            slidesToShow: this.state.slidesToShow,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 8000,
@@ -50,20 +71,22 @@ class AboutUsRoute extends Component {
                         do not host USATT sanctioned events.
                     </div>
                     <br/>
-                    <Slider className="shadow" {...settings}>
-                        <div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>
-                        <div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>
-                        <div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>
-                        {/*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*/}
-                        <div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>
-                    </Slider>
+                    <div style={{margin: 'auto', width: this.state.carouselWidth}}>
+                        <Slider className="shadow" {...settings}>
+                            <div><img className="slider-image shadow" src={ClubPicture1} alt={true}/></div>
+                            <div><img className="slider-image shadow" src={ClubPicture2} alt={true}/></div>
+                            <div><img className="slider-image shadow" src={BuildingPicture} alt={true}/></div>
+                            {/*<div><img className="slider-image shadow" src={GroupPicture1} alt={true}/></div>*/}
+                            <div><img className="slider-image shadow" src={GroupPicture2} alt={true}/></div>
+                        </Slider>
+                    </div>
                     <br/>
                 </div>
                 <div>
                     <h1>Location</h1>
                     <div style={{
                         position: 'relative',
-                        paddingBottom: '40%',
+                        paddingBottom: '50%',
                         height: '0',
                         overflow: 'hidden'
                     }} onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
@@ -74,8 +97,8 @@ class AboutUsRoute extends Component {
                             frameBorder="0"
                             style={{
                                 position: 'absolute',
-                                left: '25%',
-                                width: '50%',
+                                left: '20%',
+                                width: '60%',
                                 height: '100%',
                                 pointerEvents: this.state.hasPointerEvents ? 'auto' : 'none'
                             }}
