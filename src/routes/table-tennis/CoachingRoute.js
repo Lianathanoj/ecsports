@@ -8,7 +8,15 @@ class CoachingRoute extends Component {
         return (
             <div style={{textAlign: 'center'}}>
                 <h1>Coaching</h1>
-                <Card containerStyle={{fontFamily: "'Zilla Slab', 'sans-serif"}} style={{margin: 'auto', width: '70%', backgroundColor: '#f2f2f2'}}>
+                <Card
+                    containerStyle={{fontFamily: "'Zilla Slab', 'sans-serif"}}
+                    style={{
+                        margin: 'auto',
+                        width: '70%',
+                        backgroundColor: '#f2f2f2',
+                        boxShadow: '2px 4px 10px rgba(0,0,0,0.16), 3px 4px 12px rgba(0,0,0,0.23)'
+                    }}
+                >
                     <CardText style={{overflow: 'auto'}}>
                         <div>
                             <img className="amy-image shadow" src={amyImage} alt="coach amy"/>

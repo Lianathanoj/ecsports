@@ -31,15 +31,26 @@ class LandingPage extends Component {
   }
 
   handleTabChange = (value) => {
-      this.setState({ tabValue: value});
+      this.setState({tabValue: value});
   }
 
-  render() {
+  handleTabSportsChange = (value) => {
+      this.setState({
+          isTableTennis: !this.state.isTableTennis,
+          tabValue: "1"
+      });
+  }
+
+    render() {
     return (
         <MuiThemeProvider>
             <div>
                 <div className="landing-page">
-                    <div className="header">
+                    <div
+                        onMouseOver={this.handleHeaderHover}
+                        onMouseLeave={this.handleHeaderLeave}
+                        className="header"
+                    >
                         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
                         <Particles style={{position: 'absolute', left: '0px'}} height='200px' params={{
                             particles: {
@@ -138,7 +149,7 @@ class LandingPage extends Component {
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#2071FC'}}
                                 inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
-                                value={this.state.tabValue}
+                                value={~~this.state.tabValue > 5 ? "5" : this.state.tabValue}
                                 onChange={this.handleTabChange}
                             >
                                 <Tab label="About Us" value="1">
@@ -156,12 +167,14 @@ class LandingPage extends Component {
                                 <Tab label="Contact" value="5">
                                     <ContactRouteTT/>
                                 </Tab>
+                                <Tab onClick={this.handleTabSportsChange} label="Fencing" value="6">
+                                </Tab>
                             </Tabs>
                         ) : (
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#D83E2C'}}
                                 inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
-                                value={~~this.state.tabValue > 4 ? "4" : this.state.tabValue}
+                                value={~~this.state.tabValue > 4 ? "4": this.state.tabValue}
                                 onChange={this.handleTabChange}
                             >
                                 <Tab label="About Us" value="1">
@@ -175,6 +188,8 @@ class LandingPage extends Component {
                                 </Tab>
                                 <Tab label="Contact" value="4">
                                     <ContactRouteFencing/>
+                                </Tab>
+                                <Tab onClick={this.handleTabSportsChange} label="Table Tennis" value="5">
                                 </Tab>
                             </Tabs>
                         )
