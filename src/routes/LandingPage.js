@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 import AboutUsRouteTT from './table-tennis/AboutUsRoute';
 import MembershipRouteTT from './table-tennis/MembershipRoute';
 import CoachingRouteTT from './table-tennis/CoachingRoute';
@@ -22,9 +26,32 @@ class LandingPage extends Component {
       super(props);
       this.state = {
           isTableTennis: true,
-          tabValue: "1"
+          tabValue: "1",
+          isMobile: false,
+          open: false
       };
   }
+
+  componentDidMount() {
+      this.checkMobile();
+      window.addEventListener("resize", this.checkMobile);
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.checkMobile);
+  }
+
+  checkMobile =() => {
+      if (window.innerWidth < 800) {
+          this.setState({isMobile: true})
+      } else {
+          this.setState({isMobile: false});
+      }
+  }
+
+  handleMenuToggle = () => this.setState({open: !this.state.open});
+
+  handleMenuClose = () => this.setState({open: false});
 
   handleSportsButtonClick = (event) => {
       this.setState({isTableTennis: !this.state.isTableTennis});
@@ -41,97 +68,128 @@ class LandingPage extends Component {
       });
   }
 
-    render() {
+  render() {
     return (
         <MuiThemeProvider>
             <div>
                 <div className="landing-page">
+                    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
+                    {this.state.isMobile &&
+                        <div>
+                            <AppBar
+                                title="East Cobb Sports"
+                                onLeftIconButtonTouchTap={this.handleMenuToggle}
+                            />
+                            <Drawer
+                                docked={false}
+                                width={200}
+                                open={this.state.open}
+                                onRequestChange={(open) => this.setState({open})}
+                            >
+                                <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+                            </Drawer>
+                        </div>
+                    }
+                    {!this.state.isMobile &&
                     <div
                         onMouseOver={this.handleHeaderHover}
                         onMouseLeave={this.handleHeaderLeave}
                         className="header"
+                        style={{fontSize: !this.state.isMobile ? '115px' : '60px'}}
                     >
-                        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                        <Particles style={{position: 'absolute', left: '0px'}} height='23vh' params={{
-                            particles: {
-                                "number": {
-                                    "value": 50,
-                                    "density": {
-                                        "enable": false,
-                                        "value_area": 800
+
+                        <div>
+                            <Particles
+                                style={{
+                                    position: 'absolute',
+                                    left: '0px'
+                                }}
+                                height='23vh'
+                                params={{
+                                    particles: {
+                                        "number": {
+                                            "value": 50,
+                                            "density": {
+                                                "enable": false,
+                                                "value_area": 800
+                                            }
+                                        },
+                                        "color": {
+                                            "value": "#ffffff"
+                                        },
+                                        "shape": {
+                                            "type": "circle",
+                                            "stroke": {
+                                                "width": 0,
+                                                "color": "#000000"
+                                            },
+                                            "polygon": {
+                                                "nb_sides": 5
+                                            },
+                                            "image": {
+                                                "src": "img/github.svg",
+                                                "width": 100,
+                                                "height": 100
+                                            }
+                                        },
+                                        "opacity": {
+                                            "value": 0.5,
+                                            "random": false,
+                                            "anim": {
+                                                "enable": false,
+                                                "speed": 1,
+                                                "opacity_min": 0.1,
+                                                "sync": false
+                                            }
+                                        },
+                                        "size": {
+                                            "value": 3,
+                                            "random": true,
+                                            "anim": {
+                                                "enable": false,
+                                                "speed": 40,
+                                                "size_min": 0.1,
+                                                "sync": false
+                                            }
+                                        },
+                                        "line_linked": {
+                                            "enable": true,
+                                            "distance": 150,
+                                            "color": "#ffffff",
+                                            "opacity": 0.4,
+                                            "width": 1
+                                        },
+                                        "move": {
+                                            "enable": true,
+                                            "speed": 1,
+                                            "direction": "none",
+                                            "random": false,
+                                            "straight": false,
+                                            "out_mode": "out",
+                                            "bounce": false,
+                                            "attract": {
+                                                "enable": false,
+                                                "rotateX": 600,
+                                                "rotateY": 1200
+                                            }
+                                        }
                                     }
-                                },
-                                "color": {
-                                    "value": "#ffffff"
-                                },
-                                "shape": {
-                                    "type": "circle",
-                                    "stroke": {
-                                        "width": 0,
-                                        "color": "#000000"
-                                    },
-                                    "polygon": {
-                                        "nb_sides": 5
-                                    },
-                                    "image": {
-                                        "src": "img/github.svg",
-                                        "width": 100,
-                                        "height": 100
-                                    }
-                                },
-                                "opacity": {
-                                    "value": 0.5,
-                                    "random": false,
-                                    "anim": {
-                                        "enable": false,
-                                        "speed": 1,
-                                        "opacity_min": 0.1,
-                                        "sync": false
-                                    }
-                                },
-                                "size": {
-                                    "value": 3,
-                                    "random": true,
-                                    "anim": {
-                                        "enable": false,
-                                        "speed": 40,
-                                        "size_min": 0.1,
-                                        "sync": false
-                                    }
-                                },
-                                "line_linked": {
-                                    "enable": true,
-                                    "distance": 150,
-                                    "color": "#ffffff",
-                                    "opacity": 0.4,
-                                    "width": 1
-                                },
-                                "move": {
-                                    "enable": true,
-                                    "speed": 1,
-                                    "direction": "none",
-                                    "random": false,
-                                    "straight": false,
-                                    "out_mode": "out",
-                                    "bounce": false,
-                                    "attract": {
-                                        "enable": false,
-                                        "rotateX": 600,
-                                        "rotateY": 1200
-                                    }
-                                }
-                            }
-                        }}/>
-                        <div className="header-title">
-                            East Cobb Sports
+                                }}
+                            />
+                            < div className="header-title">
+                                East Cobb Sports
+                            </div>
+                            <div className="header-subtitle">
+                                2550 Sandy Plains Road, Suite 230<br/>
+                                Marietta, GA 30066
+                            </div>
                         </div>
-                        <div className="header-subtitle">
-                            2550 Sandy Plains Road, Suite 230<br/>
-                            Marietta, GA 30066
-                        </div>
+
                     </div>
+                    }
                     <div>
-                    {this.state.isTableTennis ?
+                    {!this.state.isMobile && (this.state.isTableTennis ?
                         (
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#2071FC'}}
@@ -190,7 +248,7 @@ class LandingPage extends Component {
                                     wordWrap: 'break-word'}} label="Table Tennis" value="5">
                                 </Tab>
                             </Tabs>
-                        )
+                        ))
                     }
                     </div>
                 </div>
