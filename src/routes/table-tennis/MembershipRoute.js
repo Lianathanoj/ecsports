@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class MembershipRoute extends Component {
     render() {
         return (
-            <div style={{textAlign: 'center'}}>
-                <div style={{marginBottom: '50px'}}>
+            <div style={{textAlign: 'center', paddingBottom: '50px'}}>
+                <div>
                     <h1>Pricing for Private Lessons</h1>
                     <table style={{margin: 'auto'}}>
                         <tbody>

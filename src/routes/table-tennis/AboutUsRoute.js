@@ -38,7 +38,7 @@ class AboutUsRoute extends Component {
             centerPadding: '20px'
         };
         return (
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', paddingBottom: '50px'}}>
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
                 <div style={{margin: 'auto', width: '75%'}}>
@@ -60,7 +60,7 @@ class AboutUsRoute extends Component {
                     </Slider>
                     <br/>
                 </div>
-                <div style={{marginBottom: '50px'}}>
+                <div>
                     <h1>Location</h1>
                     <div onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
                         <iframe

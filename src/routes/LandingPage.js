@@ -119,7 +119,7 @@ class LandingPage extends Component {
                                     fontSize: '60px',
                                     fontFamily: "'Zilla Slab', 'sans-serif'",
                                     textTransform: 'capitalize',
-                                    color: 'white',
+                                    color: '#f2f2f2',
                                     position: 'relative',
                                     bottom:'5px'
                                 }}
@@ -132,6 +132,7 @@ class LandingPage extends Component {
                             Marietta, GA 30066
                         </div>
                     </div>
+                    <div>
                     {this.state.isTableTennis ?
                         (
                             <Tabs
@@ -178,6 +179,7 @@ class LandingPage extends Component {
                             </Tabs>
                         )
                     }
+                    </div>
                 </div>
             </div>
         </MuiThemeProvider>
