@@ -6,7 +6,7 @@ import '../../global.css'
 class CoachingRoute extends Component {
     render() {
         return (
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', paddingBottom: '50px'}}>
                 <h1>Coaching</h1>
                 <Card
                     containerStyle={{fontFamily: "'Zilla Slab', 'sans-serif"}}

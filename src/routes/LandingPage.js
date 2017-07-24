@@ -52,7 +52,7 @@ class LandingPage extends Component {
                         className="header"
                     >
                         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                        <Particles style={{position: 'absolute', left: '0px'}} height='200px' params={{
+                        <Particles style={{position: 'absolute', left: '0px'}} height='23vh' params={{
                             particles: {
                                 "number": {
                                     "value": 50,
@@ -124,19 +124,6 @@ class LandingPage extends Component {
                         }}/>
                         <div className="header-title">
                             East Cobb Sports
-                            <FlatButton
-                                onClick={this.handleSportsButtonClick}
-                                labelStyle={{
-                                    fontSize: '60px',
-                                    fontFamily: "'Zilla Slab', 'sans-serif'",
-                                    textTransform: 'capitalize',
-                                    color: '#ECECEC',
-                                    position: 'relative',
-                                    bottom:'5px'
-                                }}
-                                style={{height: '60px'}}
-                                label={this.state.isTableTennis ? "Table Tennis" : "Fencing"}
-                            />
                         </div>
                         <div className="header-subtitle">
                             2550 Sandy Plains Road, Suite 230<br/>
@@ -152,22 +139,28 @@ class LandingPage extends Component {
                                 value={~~this.state.tabValue > 5 ? "5" : this.state.tabValue}
                                 onChange={this.handleTabChange}
                             >
-                                <Tab label="About Us" value="1">
+                                <Tab label="About Us" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="1">
                                     <AboutUsRouteTT/>
                                 </Tab>
-                                <Tab label="Coaching" value="2">
+                                <Tab label="Coaching" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="2">
                                     <CoachingRouteTT/>
                                 </Tab>
-                                <Tab label="Pricing and Membership" value="3">
+                                <Tab label="Pricing and Membership" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="3">
                                     <MembershipRouteTT/>
                                 </Tab>
-                                <Tab label="FAQ's" value="4">
+                                <Tab label="FAQ's" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="4">
                                     <FAQRouteTT/>
                                 </Tab>
-                                <Tab label="Contact" value="5">
+                                <Tab label="Contact" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="5">
                                     <ContactRouteTT/>
                                 </Tab>
-                                <Tab onClick={this.handleTabSportsChange} label="Fencing" value="6">
+                                <Tab onClick={this.handleTabSportsChange} style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} label="Fencing" value="6">
                                 </Tab>
                             </Tabs>
                         ) : (
@@ -177,19 +170,24 @@ class LandingPage extends Component {
                                 value={~~this.state.tabValue > 4 ? "4": this.state.tabValue}
                                 onChange={this.handleTabChange}
                             >
-                                <Tab label="About Us" value="1">
+                                <Tab label="About Us" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="1">
                                     <AboutUsRouteFencing/>
                                 </Tab>
-                                <Tab label="Coaching" value="2">
+                                <Tab label="Coaching" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="2">
                                     <CoachingRouteFencing/>
                                 </Tab>
-                                <Tab label="Pricing and Times" value="3">
+                                <Tab label="Pricing and Times" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="3">
                                     <MembershipRouteFencing/>
                                 </Tab>
-                                <Tab label="Contact" value="4">
+                                <Tab label="Contact" style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} value="4">
                                     <ContactRouteFencing/>
                                 </Tab>
-                                <Tab onClick={this.handleTabSportsChange} label="Table Tennis" value="5">
+                                <Tab onClick={this.handleTabSportsChange} style={{whiteSpace: 'normal',
+                                    wordWrap: 'break-word'}} label="Table Tennis" value="5">
                                 </Tab>
                             </Tabs>
                         )
