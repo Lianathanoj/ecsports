@@ -11,7 +11,6 @@ import AboutUsRouteFencing from './fencing/AboutUsRoute';
 import MembershipRouteFencing from './fencing/MembershipRoute';
 import CoachingRouteFencing from './fencing/CoachingRoute';
 import ContactRouteFencing from './fencing/ContactRoute';
-import FAQRouteFencing from './fencing/FAQRoute';
 import Particles from 'react-particles-js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import '../global.css';
@@ -21,11 +20,18 @@ injectTapEventPlugin();
 class LandingPage extends Component {
   constructor(props) {
       super(props);
-      this.state = { isTableTennis: true };
+      this.state = {
+          isTableTennis: true,
+          tabValue: "1"
+      };
   }
 
   handleSportsButtonClick = (event) => {
-      this.setState({ isTableTennis: !this.state.isTableTennis});
+      this.setState({isTableTennis: !this.state.isTableTennis});
+  }
+
+  handleTabChange = (value) => {
+      this.setState({ tabValue: value});
   }
 
   render() {
@@ -131,20 +137,22 @@ class LandingPage extends Component {
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#2071FC'}}
                                 inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
+                                value={this.state.tabValue}
+                                onChange={this.handleTabChange}
                             >
-                                <Tab label="About Us">
+                                <Tab label="About Us" value="1">
                                     <AboutUsRouteTT/>
                                 </Tab>
-                                <Tab label="Coaching">
+                                <Tab label="Coaching" value="2">
                                     <CoachingRouteTT/>
                                 </Tab>
-                                <Tab label="Pricing and Membership">
+                                <Tab label="Pricing and Membership" value="3">
                                     <MembershipRouteTT/>
                                 </Tab>
-                                <Tab label="FAQ's">
+                                <Tab label="FAQ's" value="4">
                                     <FAQRouteTT/>
                                 </Tab>
-                                <Tab label="Contact">
+                                <Tab label="Contact" value="5">
                                     <ContactRouteTT/>
                                 </Tab>
                             </Tabs>
@@ -152,20 +160,19 @@ class LandingPage extends Component {
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#D83E2C'}}
                                 inkBarStyle={{backgroundColor: '#000000', height: '2.5px'}}
+                                value={~~this.state.tabValue > 4 ? "4" : this.state.tabValue}
+                                onChange={this.handleTabChange}
                             >
-                                <Tab label="About Us">
+                                <Tab label="About Us" value="1">
                                     <AboutUsRouteFencing/>
                                 </Tab>
-                                <Tab label="Coaching">
+                                <Tab label="Coaching" value="2">
                                     <CoachingRouteFencing/>
                                 </Tab>
-                                <Tab label="Pricing and Times">
+                                <Tab label="Pricing and Times" value="3">
                                     <MembershipRouteFencing/>
                                 </Tab>
-                                {/*<Tab label="FAQ's">*/}
-                                    {/*<FAQRouteFencing/>*/}
-                                {/*</Tab>*/}
-                                <Tab label="Contact">
+                                <Tab label="Contact" value="4">
                                     <ContactRouteFencing/>
                                 </Tab>
                             </Tabs>
