@@ -42,7 +42,6 @@ class AboutUsRoute extends Component {
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
                 <div style={{margin: 'auto', width: '75%'}}>
-                    <br/>
                     <h1>General Information</h1>
                     <div>
                         We offer table tennis coaching services, open play, and league play for all ages and skill levels.
