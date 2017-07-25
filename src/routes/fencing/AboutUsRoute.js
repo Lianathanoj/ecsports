@@ -24,7 +24,7 @@ class AboutUsRoute extends Component {
 
     updateCarousel = () => {
         if (window.innerWidth < 1000) {
-            this.setState({carouselWidth: '80%', slidesToShow: 1});
+            this.setState({carouselWidth: '80%', slidesToShow: 2});
         } else {
             this.setState({carouselWidth: '100%', slidesToShow: 2});
         }
@@ -89,7 +89,7 @@ class AboutUsRoute extends Component {
                     <h1>Location</h1>
                     <div style={{
                         position: 'relative',
-                        paddingBottom: '50%',
+                        paddingBottom: '30%',
                         height: '0',
                         overflow: 'hidden'
                     }} onMouseDown={this.handleMapMouseDown} onMouseLeave={this.handleMapMouseLeave}>
@@ -100,8 +100,8 @@ class AboutUsRoute extends Component {
                             frameBorder="0"
                             style={{
                                 position: 'absolute',
-                                left: '20%',
-                                width: '60%',
+                                left: '25%',
+                                width: '50%',
                                 height: '100%',
                                 pointerEvents: this.state.hasPointerEvents ? 'auto' : 'none'
                             }}
