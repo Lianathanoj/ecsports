@@ -27,7 +27,7 @@ class AboutUsRoute extends Component {
 
     updateCarousel = () => {
         if (window.innerWidth < 1000) {
-            this.setState({carouselWidth: '80%', slidesToShow: 1});
+            this.setState({carouselWidth: '80%', slidesToShow: 2});
         } else {
             this.setState({carouselWidth: '100%', slidesToShow: 2});
         }

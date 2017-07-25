@@ -105,11 +105,11 @@ class LandingPage extends Component {
                                     position: 'absolute',
                                     left: '0px'
                                 }}
-                                height='23vh'
+                                height='170px'
                                 params={{
                                     particles: {
                                         "number": {
-                                            "value": 50,
+                                            "value": 55,
                                             "density": {
                                                 "enable": false,
                                                 "value_area": 800
