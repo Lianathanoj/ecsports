@@ -89,6 +89,7 @@ class LandingPage extends Component {
                             <AppBar
                                 title="East Cobb Sports"
                                 onLeftIconButtonTouchTap={this.handleMenuToggle}
+                                style={{backgroundColor: this.state.isTableTennis ? '#2071FC' : '#D83E2C'}}
                             />
                             <Drawer
                                 docked={false}
@@ -96,13 +97,14 @@ class LandingPage extends Component {
                                 open={this.state.open}
                                 onRequestChange={(open) => this.setState({open})}
                             >
-                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about" />}>About Us</MenuItem>
-                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
-                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/membership" />}>Membership</MenuItem>
-                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/faq" />}>FAQ's</MenuItem>
-                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/contact" />}>Contact</MenuItem>
+                                <MenuItem containerElement={<Link to="/about" />}>About Us</MenuItem>
+                                <MenuItem containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
+                                <MenuItem containerElement={<Link to="/membership" />}>Membership</MenuItem>
+                                {this.state.isTableTennis && <MenuItem containerElement={<Link to="/faq" />}>FAQ's</MenuItem>}
+                                <MenuItem containerElement={<Link to="/contact" />}>Contact</MenuItem>
+                                <MenuItem onClick={this.handleSportsButtonClick} containerElement={<Link to="/about" />}>{this.state.isTableTennis ? "Fencing" : "Table Tennis"}</MenuItem>
                             </Drawer>
-                            <Route path="/" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
+                            <Route exact path="/" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
                             <Route path="/about" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
                             <Route path="/coaching" component={this.state.isTableTennis ? CoachingRouteTT : CoachingRouteFencing}/>
                             <Route path="/Contact" component={this.state.isTableTennis ? ContactRouteTT : ContactRouteFencing}/>
