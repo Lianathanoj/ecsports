@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Link,
-    Route,
-    BrowserRouter as Router
-} from 'react-router-dom'
-
+import {Link, Route, BrowserRouter as Router} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
@@ -33,29 +28,45 @@ class LandingPage extends Component {
       this.state = {
           isTableTennis: true,
           tabValue: "1",
-          isMobile: false,
+          isComputerScreen: true,
+          isMediumScreen: false,
+          isMobileScreen: false,
           open: false
       };
   }
 
   componentWillMount() {
-      this.checkMobile();
+      this.checkScreenSize();
   }
 
   componentDidMount() {
-      this.checkMobile();
-      window.addEventListener("resize", this.checkMobile);
+      this.checkScreenSize();
+      window.addEventListener("resize", this.checkScreenSize);
   }
 
   componentWillUnmount() {
-      window.removeEventListener("resize", this.checkMobile);
+      window.removeEventListener("resize", this.checkScreenSize);
   }
 
-  checkMobile =() => {
-      if (window.innerWidth < 900) {
-          this.setState({isMobile: true})
+  checkScreenSize = () => {
+      if (window.innerWidth < 800) {
+          this.setState({
+              isMediumScreen: false,
+              isComputerScreen: false,
+              isMobileScreen: true
+          });
+      } else if (window.innerWidth < 1000) {
+          this.setState({
+              isMediumScreen: true,
+              isComputerScreen: false,
+              isMobileScreen: false
+          });
       } else {
-          this.setState({isMobile: false});
+          this.setState({
+              isMediumScreen: false,
+              isComputerScreen: true,
+              isMobileScreen: false
+          });
       }
   }
 
@@ -89,7 +100,7 @@ class LandingPage extends Component {
             <Router>
                 <div className="landing-page">
                     <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
-                    {this.state.isMobile &&
+                    {this.state.isMobileScreen &&
                         <div>
                             <AppBar
                                 title="East Cobb Sports"
@@ -117,12 +128,12 @@ class LandingPage extends Component {
                             <Route path="/membership" component={this.state.isTableTennis ? MembershipRouteTT : MembershipRouteFencing}/>
                         </div>
                     }
-                    {!this.state.isMobile &&
+                    {!this.state.isMobileScreen &&
                     <div
                         onMouseOver={this.handleHeaderHover}
                         onMouseLeave={this.handleHeaderLeave}
                         className="header"
-                        style={{fontSize: !this.state.isMobile ? '115px' : '60px'}}
+                        style={{fontSize: !this.state.isMobileScreen ? '115px' : '60px'}}
                     >
                         <div>
                             <Particles
@@ -202,7 +213,7 @@ class LandingPage extends Component {
                                     }
                                 }}
                             />
-                            < div className="header-title">
+                            <div className="header-title">
                                 East Cobb Sports
                             </div>
                             <div className="header-subtitle">
@@ -213,7 +224,7 @@ class LandingPage extends Component {
                     </div>
                     }
                     <div>
-                    {!this.state.isMobile && (this.state.isTableTennis ?
+                    {!this.state.isMobileScreen && (this.state.isTableTennis ?
                         (
                             <Tabs
                                 tabItemContainerStyle={{backgroundColor: '#2071FC'}}
@@ -227,7 +238,7 @@ class LandingPage extends Component {
                                 </Tab>
                                 <Tab label="Coaching" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="2">
-                                    <CoachingRouteTT/>
+                                    <CoachingRouteTT isMobileScreen={this.state.isMobileScreen}/>
                                 </Tab>
                                 <Tab label="Pricing and Membership" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="3">
