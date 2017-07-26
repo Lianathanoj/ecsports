@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+    Link,
+    Route,
+    BrowserRouter as Router
+} from 'react-router-dom'
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
@@ -32,6 +38,10 @@ class LandingPage extends Component {
       };
   }
 
+  componentWillMount() {
+      this.checkMobile();
+  }
+
   componentDidMount() {
       this.checkMobile();
       window.addEventListener("resize", this.checkMobile);
@@ -42,7 +52,7 @@ class LandingPage extends Component {
   }
 
   checkMobile =() => {
-      if (window.innerWidth < 800) {
+      if (window.innerWidth < 900) {
           this.setState({isMobile: true})
       } else {
           this.setState({isMobile: false});
@@ -71,7 +81,7 @@ class LandingPage extends Component {
   render() {
     return (
         <MuiThemeProvider>
-            <div>
+            <Router>
                 <div className="landing-page">
                     <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:500" rel="stylesheet"/>
                     {this.state.isMobile &&
@@ -86,9 +96,18 @@ class LandingPage extends Component {
                                 open={this.state.open}
                                 onRequestChange={(open) => this.setState({open})}
                             >
-                                <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-                                <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about" />}>About Us</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/membership" />}>Membership</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/faq" />}>FAQ's</MenuItem>
+                                <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/contact" />}>Contact</MenuItem>
                             </Drawer>
+                            <Route path="/" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
+                            <Route path="/about" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
+                            <Route path="/coaching" component={this.state.isTableTennis ? CoachingRouteTT : CoachingRouteFencing}/>
+                            <Route path="/Contact" component={this.state.isTableTennis ? ContactRouteTT : ContactRouteFencing}/>
+                            <Route path="/faq" component={this.state.isTableTennis ? FAQRouteTT : null}/>
+                            <Route path="/membership" component={this.state.isTableTennis ? MembershipRouteTT : MembershipRouteFencing}/>
                         </div>
                     }
                     {!this.state.isMobile &&
@@ -98,7 +117,6 @@ class LandingPage extends Component {
                         className="header"
                         style={{fontSize: !this.state.isMobile ? '115px' : '60px'}}
                     >
-
                         <div>
                             <Particles
                                 style={{
@@ -185,7 +203,6 @@ class LandingPage extends Component {
                                 Marietta, GA 30066
                             </div>
                         </div>
-
                     </div>
                     }
                     <div>
@@ -252,7 +269,7 @@ class LandingPage extends Component {
                     }
                     </div>
                 </div>
-            </div>
+            </Router>
         </MuiThemeProvider>
     );
   }
