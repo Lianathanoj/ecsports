@@ -78,6 +78,11 @@ class LandingPage extends Component {
       });
   }
 
+  handleMobileSportsButtonClick = () => {
+      this.handleSportsButtonClick();
+      this.handleMenuClose();
+  }
+
   render() {
     return (
         <MuiThemeProvider>
@@ -93,16 +98,16 @@ class LandingPage extends Component {
                             />
                             <Drawer
                                 docked={false}
-                                width={200}
+                                width={175}
                                 open={this.state.open}
                                 onRequestChange={(open) => this.setState({open})}
                             >
-                                <MenuItem containerElement={<Link to="/about" />}>About Us</MenuItem>
-                                <MenuItem containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
-                                <MenuItem containerElement={<Link to="/membership" />}>Membership</MenuItem>
-                                {this.state.isTableTennis && <MenuItem containerElement={<Link to="/faq" />}>FAQ's</MenuItem>}
-                                <MenuItem containerElement={<Link to="/contact" />}>Contact</MenuItem>
-                                <MenuItem onClick={this.handleSportsButtonClick} containerElement={<Link to="/about" />}>{this.state.isTableTennis ? "Fencing" : "Table Tennis"}</MenuItem>
+                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/about" />}>About Us</MenuItem>
+                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
+                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/membership" />}>Membership</MenuItem>
+                                {this.state.isTableTennis && <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/faq" />}>FAQ's</MenuItem>}
+                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/contact" />}>Contact</MenuItem>
+                                <MenuItem onClick={this.handleMobileSportsButtonClick} containerElement={<Link to="/about" />}>{this.state.isTableTennis ? "Fencing" : "Table Tennis"}</MenuItem>
                             </Drawer>
                             <Route exact path="/" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
                             <Route path="/about" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
