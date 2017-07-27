@@ -28,8 +28,8 @@ class LandingPage extends Component {
       this.state = {
           isTableTennis: true,
           tabValue: "1",
-          isComputerScreen: true,
-          isMediumScreen: false,
+          screenWidth: 0,
+          screenHeight: 0,
           isMobileScreen: false,
           open: false
       };
@@ -49,22 +49,14 @@ class LandingPage extends Component {
   }
 
   checkScreenSize = () => {
+      this.setState({screenWidth: window.innerWidth});
+      this.setState({screenHeight: window.innerHeight});
       if (window.innerWidth < 800) {
           this.setState({
-              isMediumScreen: false,
-              isComputerScreen: false,
               isMobileScreen: true
-          });
-      } else if (window.innerWidth < 1000) {
-          this.setState({
-              isMediumScreen: true,
-              isComputerScreen: false,
-              isMobileScreen: false
           });
       } else {
           this.setState({
-              isMediumScreen: false,
-              isComputerScreen: true,
               isMobileScreen: false
           });
       }
@@ -113,19 +105,82 @@ class LandingPage extends Component {
                                 open={this.state.open}
                                 onRequestChange={(open) => this.setState({open})}
                             >
-                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/about" />}>About Us</MenuItem>
-                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/coaching" />}>Coaching</MenuItem>
-                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/membership" />}>Membership</MenuItem>
-                                {this.state.isTableTennis && <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/faq" />}>FAQ's</MenuItem>}
-                                <MenuItem onClick={this.handleMenuClose} containerElement={<Link to="/contact" />}>Contact</MenuItem>
-                                <MenuItem onClick={this.handleMobileSportsButtonClick} containerElement={<Link to="/about" />}>{this.state.isTableTennis ? "Fencing" : "Table Tennis"}</MenuItem>
+                                <MenuItem
+                                    onClick={this.handleMenuClose}
+                                    containerElement={<Link to="/about" />}
+                                >
+                                    About Us
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={this.handleMenuClose}
+                                    containerElement={<Link to="/coaching" />}
+                                >
+                                    Coaching
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={this.handleMenuClose}
+                                    containerElement={<Link to="/membership" />}
+                                >
+                                    Membership
+                                </MenuItem>
+                                {this.state.isTableTennis &&
+                                <MenuItem
+                                    onClick={this.handleMenuClose}
+                                    containerElement={<Link to="/faq" />}
+                                >
+                                    FAQ's
+                                </MenuItem>
+                                }
+                                <MenuItem
+                                    onClick={this.handleMenuClose}
+                                    containerElement={<Link to="/contact" />}
+                                >
+                                    Contact
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={this.handleMobileSportsButtonClick}
+                                    containerElement={<Link to="/about" />}
+                                >
+                                    {this.state.isTableTennis ? "Fencing" : "Table Tennis"}
+                                </MenuItem>
                             </Drawer>
-                            <Route exact path="/" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
-                            <Route path="/about" component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}/>
-                            <Route path="/coaching" component={this.state.isTableTennis ? CoachingRouteTT : CoachingRouteFencing}/>
-                            <Route path="/Contact" component={this.state.isTableTennis ? ContactRouteTT : ContactRouteFencing}/>
-                            <Route path="/faq" component={this.state.isTableTennis ? FAQRouteTT : null}/>
-                            <Route path="/membership" component={this.state.isTableTennis ? MembershipRouteTT : MembershipRouteFencing}/>
+                            <Route
+                                exact path="/"
+                                component={this.state.isTableTennis ? AboutUsRouteTT : AboutUsRouteFencing}
+                            />
+                            <Route
+                                path="/about"
+                                component={() => (
+                                    this.state.isTableTennis
+                                        ? <AboutUsRouteTT
+                                            isMobileScreen={this.state.isMobileScreen}
+                                            screenWidth={this.state.screenWidth}
+                                            screenHeight={this.state.screenHeight}
+                                          />
+                                        : <AboutUsRouteFencing
+                                            isMobileScreen={this.state.isMobileScreen}
+                                            screenWidth={this.state.screenWidth}
+                                            screenHeight={this.state.screenHeight}
+                                          />
+                                    )
+                                }
+                            />
+                            <Route
+                                path="/coaching"
+                                component={this.state.isTableTennis ? CoachingRouteTT : CoachingRouteFencing}
+                            />
+                            <Route
+                                path="/Contact"
+                                component={this.state.isTableTennis ? ContactRouteTT : ContactRouteFencing}
+                            />
+                            <Route
+                                path="/faq"
+                                component={this.state.isTableTennis ? FAQRouteTT : null}
+                            />
+                            <Route
+                                path="/membership"
+                                component={this.state.isTableTennis ? MembershipRouteTT : MembershipRouteFencing}
+                            />
                         </div>
                     }
                     {!this.state.isMobileScreen &&
@@ -234,7 +289,10 @@ class LandingPage extends Component {
                             >
                                 <Tab label="About Us" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="1">
-                                    <AboutUsRouteTT/>
+                                    <AboutUsRouteTT
+                                        screenWidth={this.state.screenWidth}
+                                        screenHeight={this.state.screenHeight}
+                                    />
                                 </Tab>
                                 <Tab label="Coaching" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="2">
@@ -265,7 +323,10 @@ class LandingPage extends Component {
                             >
                                 <Tab label="About Us" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="1">
-                                    <AboutUsRouteFencing/>
+                                    <AboutUsRouteFencing
+                                        screenWidth={this.state.screenWidth}
+                                        screenHeight={this.state.screenHeight}
+                                    />
                                 </Tab>
                                 <Tab label="Coaching" style={{whiteSpace: 'normal',
                                     wordWrap: 'break-word'}} value="2">
